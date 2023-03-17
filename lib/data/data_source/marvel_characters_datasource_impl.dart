@@ -17,7 +17,7 @@ class MarvelCharactersDSImpl implements MarvelCharactersDS {
       final int timeStamp = DateTime.now().microsecondsSinceEpoch;
       final hash = md5.convert(utf8.encode('$timeStamp$privateKey$publicKey')).toString();
       final url =
-          'http://gateway.marvel.com/v1/public/characters?ts=$timeStamp&apikey=$publicKey&hash=$hash&offset=$offSet&limit=$limit';
+          'https://gateway.marvel.com/v1/public/characters?ts=$timeStamp&apikey=$publicKey&hash=$hash&offset=$offSet&limit=$limit';
 
       final response = await Dio().get(url);
       final List<dynamic> list = response.data['data']['results'];
